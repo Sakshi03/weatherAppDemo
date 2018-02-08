@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Weather Update</title>
+  </head>
+  <body>
+    <h3 style="position: absolute;margin-top: -56px;margin-left: 597px;color: darkblue;";>WEATHER UPDATE</h3>
+    <div class="container" style="width: 507px;margin-top: 160px;margin-left: 424px;">
+      <fieldset>
+        <form action="/" method="POST">
+          <input name="city" type="text"  placeholder="Enter a City" required style="margin:12px 179px;"><br>
+          <input type="submit"  value="Get Weather" style="margin: 10px 219px;">
+        </form>
+        <% if(weather !== null){ %>
+          <p style="color:red;text-align:center;"><%= weather %></p>
+        <% } %>
+
+        <% if(error !== null){ %>
+          <p><%= error %></p>
+        <% } %>
+      </fieldset>
+    </div>
+  </body>
+</html>
