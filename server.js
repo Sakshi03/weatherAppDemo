@@ -18,10 +18,12 @@ app.get('/', function (req, res) {
 
 app.post('/', function (req, res) { 
   let city = req.body.city;
-   var weather = new WeatherAPI(apikey); weather.getWeather(city)
-   .then(response => { 
+   var weather = new WeatherAPI(apikey); 
+   weather.getWeather(city).then(response => { 
        var weather = JSON.parse(response.body);
         res.render('index', {weather:"Temperature in "+ city + " is " +(parseInt(weather.main.temp) - 273.15).toFixed(2), error: null});
+}, response =>{
+        res.render('index', {weather:"Some error occured. Please Check city name is correct and try again", error: null});    
 });
 })
 
